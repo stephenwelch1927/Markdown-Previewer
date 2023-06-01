@@ -10,8 +10,9 @@ float: left;
 
 .textArea {
     font-size: 20px;
-    width: 48rem;
-    overflow-y: scroll ;
+    width: 478px;
+    height: 500px;
+    
 }
 
 .title {
@@ -27,4 +28,17 @@ float: left;
     top: 50px;
     right: 250px;
   
+}
+
+
+
+.previewOutput{
+    width:  478px;
+    height: 500px;
+    background-color: lightgray;
+    marginLeft: "auto";
+    marginRight: "auto";
+    padding:"10px";
+    overflow-y: scroll;
+    
 }
