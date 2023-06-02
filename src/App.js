@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Card } from "react-bootstrap";
+import { Card, Placeholder } from "react-bootstrap";
 import card from "./components/markdow.module.css";
 import { marked } from "marked";
 
@@ -37,7 +37,7 @@ class App extends React.Component {
               </Card.Title>
             </section>
 
-            <div
+            <div id="preview"
               className={card.previewOutput}
               dangerouslySetInnerHTML={{ __html: marked(this.state.message) }}
             ></div>
@@ -59,7 +59,7 @@ class App extends React.Component {
               </Card.Title>
             </section>
             <div className={card.textArea}>
-              <textarea
+              <textarea id="editor"
                 className={card.textArea}
                 onChange={(event) => {
                   this.updateTextArea(event.target.value);
