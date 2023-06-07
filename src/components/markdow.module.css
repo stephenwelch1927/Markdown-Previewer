@@ -40,5 +40,7 @@ float: left;
     marginRight: "auto";
     padding:"10px";
     overflow-y: scroll;
-    
+    content: attr(data-placeholder);
 }
+
+

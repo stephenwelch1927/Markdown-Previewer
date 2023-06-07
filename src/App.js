@@ -5,20 +5,12 @@ import { Card, Placeholder } from "react-bootstrap";
 import card from "./components/markdow.module.css";
 import { marked } from "marked";
 
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: "",
-      markText: `
-# Welcome to my React Markdown Previewer!
+const markText = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
 ### And here's some other cool stuff:
 
 Heres some code, \`<div></div>\`, between 2 backticks.
-
 \`\`\`
 // this is multi-line code:
 
@@ -35,7 +27,7 @@ Or... wait for it... **_both!_**
 And feel free to go crazy ~~crossing stuff out~~.
 
 There's also [links](https://www.freecodecamp.org), and
-> Block Quotes!
+ > Block Quotes !
 
 And if you want to get really crazy, even tables:
 
@@ -56,6 +48,12 @@ And here. | Okay. | I think we get it.
 ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
 
 `
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: markText,
+     
 
    };
   }
@@ -88,9 +86,8 @@ And here. | Okay. | I think we get it.
               className={card.previewOutput}
               dangerouslySetInnerHTML={{ __html: marked(this.state.message) }}
               value={this.state.message}
-              contentEditable={true}
-              placeholder={this.state.markText}
-            ></div>
+            >
+            </div>
           </Card.Body>
         </Card>
         <Card className={card.card} style={{ width: "50rem" }}>
@@ -116,7 +113,7 @@ And here. | Okay. | I think we get it.
                   
                 }}
                 value={this.state.message}
-                placeholder={this.state.markText}
+                
               ></textarea>
             </div>
           </Card.Body>
