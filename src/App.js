@@ -5,6 +5,10 @@ import { Card, Placeholder } from "react-bootstrap";
 import card from "./components/markdow.module.css";
 import { marked } from "marked";
 
+marked.setOptions({
+  breaks: true,
+});
+
 const markText = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
@@ -47,15 +51,13 @@ And here. | Okay. | I think we get it.
 
 ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
 
-`
+`;
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       message: markText,
-     
-
-   };
+    };
   }
 
   updateTextArea(message) {
@@ -82,12 +84,12 @@ class App extends React.Component {
               </Card.Title>
             </section>
 
-            <div id="preview"
+            <div
+              id="preview"
               className={card.previewOutput}
               dangerouslySetInnerHTML={{ __html: marked(this.state.message) }}
               value={this.state.message}
-            >
-            </div>
+            ></div>
           </Card.Body>
         </Card>
         <Card className={card.card} style={{ width: "50rem" }}>
@@ -106,14 +108,13 @@ class App extends React.Component {
               </Card.Title>
             </section>
             <div className={card.textArea}>
-              <textarea id="editor"
+              <textarea
+                id="editor"
                 className={card.textArea}
                 onChange={(event) => {
                   this.updateTextArea(event.target.value);
-                  
                 }}
                 value={this.state.message}
-                
               ></textarea>
             </div>
           </Card.Body>
